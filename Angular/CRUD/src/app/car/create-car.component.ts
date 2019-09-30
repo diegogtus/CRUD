@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-create-car',
@@ -11,5 +12,7 @@ export class CreateCarComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  saveCar(carForm : NgForm) : void {
+    console.log(carForm);
+  }
 }

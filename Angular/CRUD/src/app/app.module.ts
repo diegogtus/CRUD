@@ -2,11 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule , Routes} from '@angular/router';
 import { AlertModule } from 'ngx-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { CarService } from './car/car.service';
 
 
 import { AppComponent } from './app.component';
 import { CarlistComponent } from './car/carlist.component';
 import { CreateCarComponent } from './car/create-car.component';
+import { from } from 'rxjs';
 
 const appRoutes: Routes = [
   { path : 'list', component: CarlistComponent },
@@ -23,9 +26,10 @@ const appRoutes: Routes = [
   imports: [
     AlertModule.forRoot(),
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes), 
+    FormsModule
   ],
-  providers: [],
+  providers: [CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
