@@ -1,18 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule , Routes} from '@angular/router';
+import { AlertModule } from 'ngx-bootstrap';
 
-import { AppRoutingModule, routingComponents } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+import { CarlistComponent } from './car/carlist.component';
+import { CreateCarComponent } from './car/create-car.component';
 
+const appRoutes: Routes = [
+  { path : 'list', component: CarlistComponent },
+  { path : 'create', component: CreateCarComponent },
+  { path : '', redirectTo : '/list', pathMatch : 'full' }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    CarlistComponent,
+    CreateCarComponent
   ],
   imports: [
+    AlertModule.forRoot(),
     BrowserModule,
-    AppRoutingModule
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

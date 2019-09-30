@@ -9,15 +9,19 @@
 
 
 <!-- Toolbar -->
-<div style="text-align: center">
-  <h1>
-    CRUD Carros
-  </h1>
-</div>
-<nav>
-  <a routerLink="/car" routerLinkActive="active">Car</a>
+<div class="container">
+<nav class="navbar navbar-default">
+  <ul class="nav navbar-nav">
+      <li>
+          <a routerLink="create">Create</a>
+      </li>
+    <li>
+      <a routerLink="list">Read</a>
+    </li>
+  </ul>
 </nav>
-
+<router-outlet></router-outlet>
+</div>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
@@ -28,5 +32,5 @@
 
 
 
-<router-outlet></router-outlet>
+
 <!-- Routed views go here-->
