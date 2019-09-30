@@ -38,4 +38,8 @@ export class CarService {
     getCar(): Car[] {
         return this.listCar;
     }
+
+    save(car: Car){
+        this.listCar.push(car);
+    }
 }

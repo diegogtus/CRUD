@@ -13,7 +13,7 @@ import { from } from 'rxjs';
 
 const appRoutes: Routes = [
   { path : 'list', component: CarlistComponent },
-  { path : 'create', component: CreateCarComponent },
+  { path : 'edit/:id', component: CreateCarComponent },
   { path : '', redirectTo : '/list', pathMatch : 'full' }
 ];
 
