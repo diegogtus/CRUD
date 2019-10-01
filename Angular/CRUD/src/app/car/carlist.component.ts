@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Car } from '../models/car.model';
 import { CarService } from './car.service';
 import { Router } from '@angular/router';
@@ -7,9 +7,10 @@ import { Router } from '@angular/router';
   templateUrl: './carlist.component.html',
   styleUrls: ['./carlist.component.css']
 })
-export class CarlistComponent implements OnInit {
+export class CarlistComponent implements OnInit{
   car : Car[];
-  @Input() car: Car;
+
+  
   constructor(private _carService: CarService, private _router: Router) { 
 
   }
@@ -17,8 +18,6 @@ export class CarlistComponent implements OnInit {
   ngOnInit() {
     this.car = this._carService.getCar();
   }
-  editCar() {
-    this._router.navigate(['/edit', this.car.id])
-  }
+ 
 
 }

@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { CarlistComponent } from './car/carlist.component';
 import { CreateCarComponent } from './car/create-car.component';
 import { from } from 'rxjs';
+import { DisplayCarComponent } from './car/display-car.component';
 
 const appRoutes: Routes = [
   { path : 'list', component: CarlistComponent },
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     CarlistComponent,
-    CreateCarComponent
+    CreateCarComponent,
+    DisplayCarComponent
   ],
   imports: [
     AlertModule.forRoot(),
