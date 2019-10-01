@@ -16,7 +16,7 @@ export class CarlistComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.car = this._carService.getCar();
+    this.car = this._carService.getCars();
   }
  
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { CarService } from './car.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -10,8 +10,8 @@ import { Car } from '../models/car.model';
   styleUrls: ['./create-car.component.css']
 })
 export class CreateCarComponent implements OnInit {
-
-  car: Car;
+panelTitle: string;
+car: Car;
   constructor(private _carService: CarService, private _router: Router,
     private _route: ActivatedRoute) {
 
@@ -35,13 +35,16 @@ private getCar(id: number){
       photoPath : null
   
     };
+    this.panelTitle = 'Create';
   } else{
-    this.car = Object.assign({}, this._carService.getCar('id'));
+    this.panelTitle = 'Edit';
+    this.car =  this._carService.getCar(id);
   }
 }
 
-  saveCar(newCar : Car) : void {
-    this._carService.save(this.car);
+  saveCar() : void {
+    const newCar: Car = Object.assign({}, this.car);
+    this._carService.save(newCar);
     this._router.navigate(['list']);
   }
 }

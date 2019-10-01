@@ -6,3 +6,7 @@
     display: flex;
     align-items: center;
 }
+.btn-danger.first{
+    background-color: red;
+    margin: 5px;
+}
