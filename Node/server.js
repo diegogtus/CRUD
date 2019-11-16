@@ -3,6 +3,7 @@ const MongoClient    = require('mongodb').MongoClient;
 const bodyParser     = require('body-parser');
 const db             = require('./config/db');
 const app            = express();
+const cors = require('cors');
 
 const port = 8000;
 
@@ -16,6 +17,23 @@ MongoClient.connect(db.url, (err, database) => {  if (err) return console.log(er
   app.listen(port, () => {    console.log('We are live on ' + port);  });               
 })
 
+//cors
+//headers para CORS
+var originsWhitelist = [
+  'http://localhost:4200'
+   //'http://instancia-aws'
+];
+var corsOptions = {
+origin: function(origin, callback){
+      var isWhitelisted = originsWhitelist.indexOf(origin) !== -1;
+      callback(null, isWhitelisted);
+},
+credentials:true
+}
+
+app.use(cors(corsOptions));
 
 
+app.use(express.urlencoded({ extended: false}));
+app.use(express.json());
 

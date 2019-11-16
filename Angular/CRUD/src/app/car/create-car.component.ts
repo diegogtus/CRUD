@@ -38,13 +38,18 @@ private getCar(id: number){
     this.panelTitle = 'Create';
   } else{
     this.panelTitle = 'Edit';
-    this.car =  this._carService.getCar(id);
+    //this.car =  this._carService.getCar(id);
   }
 }
 
   saveCar() : void {
     const newCar: Car = Object.assign({}, this.car);
-    this._carService.save(newCar);
-    this._router.navigate(['list']);
+    this._carService.save(newCar).subscribe(data=> {
+      console.log("Create");
+      console.log(data);
+      this._router.navigate(['list']);
+    }, err => {
+      alert(err);
+    });
   }
 }

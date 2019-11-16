@@ -11,6 +11,7 @@ import { CarlistComponent } from './car/carlist.component';
 import { CreateCarComponent } from './car/create-car.component';
 import { from } from 'rxjs';
 import { DisplayCarComponent } from './car/display-car.component';
+import {HttpClientModule} from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path : 'list', component: CarlistComponent },
@@ -28,8 +29,11 @@ const appRoutes: Routes = [
   imports: [
     AlertModule.forRoot(),
     BrowserModule,
-    RouterModule.forRoot(appRoutes), 
-    FormsModule
+    RouterModule.forRoot(appRoutes, {
+      onSameUrlNavigation: 'reload'
+    }), 
+    FormsModule,
+    HttpClientModule
   ],
   providers: [CarService],
   bootstrap: [AppComponent]

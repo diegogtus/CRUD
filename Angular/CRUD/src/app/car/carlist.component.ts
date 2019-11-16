@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./carlist.component.css']
 })
 export class CarlistComponent implements OnInit{
-  car : Car[];
+  cars : Car[];
 
   
   constructor(private _carService: CarService, private _router: Router) { 
@@ -16,7 +16,15 @@ export class CarlistComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.car = this._carService.getCars();
+    return this._carService.getCars().subscribe(data => {
+      console.log(data["status"]);
+      console.log(data["response"]);
+      this.cars = data["response"];  
+
+    }, error => {
+      console.log(error["status"]);
+      console.log(error["error"]);
+    });
   }
  
 
